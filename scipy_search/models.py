@@ -90,9 +90,13 @@ class SearchIndex(models.Model):
             shutil.rmtree(self._dirname)
         os.makedirs(self._dirname)
 
+        VALID_EXTENSIONS = ('dci', 'dcz', 'pst', 'tiz', 'toc')
+
         try:
             container = zipfile.ZipFile(tmp_file)
-            container.extractall(self._dirname)
+            members = [x for x in container.namelist()
+                       if x.split('.')[-1] in VALID_EXTENSIONS]
+            container.extractall(path=self._dirname, members=members)
         except IOError:
             return False
 
