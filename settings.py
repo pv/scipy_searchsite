@@ -69,7 +69,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'scipy_search.urls'
+ROOT_URLCONF = 'scipy_searchsite.urls'
 
 TEMPLATE_DIRS = (
     filename('scipy_search/templates'),
@@ -83,5 +83,6 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'scipy_search',
+    'django.contrib.admin',
+    'scipy_searchsite.scipy_search',
 )
